@@ -1,24 +1,45 @@
+import math
 
-# Simple Python Calculator
+num1 = float(input("Enter first number: "))
+operator = input("Enter operator (+, -, *, /, %, **, //, sqrt): ")
 
-num1 = float(input("Enter the first number: "))
-operator = input("Enter an operator (+, -, *, /): ")
-num2 = float(input("Enter the second number: "))
-
-if operator == "+":
-    print("Result:", num1 + num2)
-
-elif operator == "-":
-    print("Result:", num1 - num2)
-
-elif operator == "*":
-    print("Result:", num1 * num2)
-
-elif operator == "/":
-    if num2 != 0:
-        print("Result:", num1 / num2)
+if operator == "sqrt":
+    if num1 < 0:
+        print("Error: Cannot take square root of a negative number!")
     else:
-        print("Error: Cannot divide by zero!")
-
+        print("Result:", math.sqrt(num1))
 else:
-    print("Invalid operator! try again")
+    num2 = float(input("Enter second number: "))
+
+    if operator == "+":
+        print("Result:", num1 + num2)
+
+    elif operator == "-":
+        print("Result:", num1 - num2)
+
+    elif operator == "*":
+        print("Result:", num1 * num2)
+
+    elif operator == "/":
+        if num2 == 0:
+            print("Error: Cannot divide by zero!")
+        else:
+            print("Result:", num1 / num2)
+
+    elif operator == "%":
+        if num2 == 0:
+            print("Error: Cannot take modulus by zero!")
+        else:
+            print("Result:", num1 % num2)
+
+    elif operator == "**":
+        print("Result:", num1 ** num2)
+
+    elif operator == "//":
+        if num2 == 0:
+            print("Error: Cannot divide by zero!")
+        else:
+            print("Result:", num1 // num2)
+
+    else:
+        print("Invalid operator! try again")
